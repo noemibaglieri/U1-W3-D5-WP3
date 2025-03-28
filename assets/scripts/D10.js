@@ -354,7 +354,7 @@ const deleteProp = (obj, string) => {
   delete obj[string];
 };
 
-deleteProp(movies[2], "Title");
+//deleteProp(movies[2], "Title");
 
 console.log(movies);
 
@@ -363,7 +363,13 @@ Scrivi una funzione chiamata "newestMovie" che trova il film più recente nell'a
 */
 
 console.log("------------------- TASK 12 -------------------");
-const newestMovie = () => {};
+const newestMovie = () => {
+  const clonedMovies = Object.assign([], movies);
+  clonedMovies.sort((a, b) => b.Year - a.Year);
+  return clonedMovies[0];
+};
+
+console.log(newestMovie());
 
 /* ESERCIZIO 13
 Scrivi una funzione chiamata countMovies che ritorna il numero di film contenuti nell'array "movies" fornito.
@@ -379,19 +385,67 @@ Scrivi una funzione chiamata "onlyTheYears" che crea un array con solamente gli 
 */
 
 console.log("------------------- TASK 14 -------------------");
-const onlyTheYears = () => {};
+const onlyTheYears = () => {
+  let yearsOfTheMovies = [];
+
+  for (i = 0; i < movies.length; i++) {
+    let movie = movies[i];
+    yearsOfTheMovies.push(movie.Year);
+  }
+
+  return yearsOfTheMovies;
+};
+
+console.log(onlyTheYears());
 
 /* ESERCIZIO 15
-  Scrivi una funzione chiamata "onlyInLastMillennium" che ritorna solamente i film prodotto nel millennio scorso contenuti nell'array "movies" fornito.
+Scrivi una funzione chiamata "onlyInLastMillennium" che ritorna solamente i film prodotto nel millennio scorso contenuti nell'array "movies" fornito.
 */
+
+// console.log("------------------- TASK 15 -------------------");
+// const onlyInLastMillennium = () => {};
 
 /* ESERCIZIO 16
-  Scrivi una funzione chiamata "sumAllTheYears" che ritorna la somma di tutti gli anni in cui sono stati prodotti i film contenuti nell'array "movies" fornito.
+Scrivi una funzione chiamata "sumAllTheYears" che ritorna la somma di tutti gli anni in cui sono stati prodotti i film contenuti nell'array "movies" fornito.
 */
 
+console.log("------------------- TASK 16 -------------------");
+
+const sumAllTheYears = () => {
+  let yearsOfTheMovies = [];
+
+  for (let i = 0; i < movies.length; i++) {
+    let movie = movies[i];
+
+    yearsOfTheMovies.push(Number(movie.Year));
+  }
+
+  const reducedSum = yearsOfTheMovies.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+
+  return reducedSum;
+};
+
+console.log(sumAllTheYears());
+
 /* ESERCIZIO 17
-  Scrivi una funzione chiamata "searchByTitle" che riceve una stringa come parametro e ritorna i film nell'array "movies" fornito che la contengono nel titolo.
+Scrivi una funzione chiamata "searchByTitle" che riceve una stringa come parametro e ritorna i film nell'array "movies" fornito che la contengono nel titolo.
 */
+
+console.log("------------------- TASK 17 -------------------");
+const searchByTitle = () => {
+  for (let i = 0; i < movies.length; i++) {
+    let movie = movies[i];
+    let title = movie.Title;
+
+    if (title.includes("The")) {
+      return movie;
+    } else {
+      console.log("Noway");
+    }
+  }
+};
+
+console.log(searchByTitle());
 
 /* ESERCIZIO 18
   Scrivi una funzione chiamata "searchAndDivide" che riceve una stringa come parametro e ritorna un oggetto contenente due array: "match" e "unmatch".
