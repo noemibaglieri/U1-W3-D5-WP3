@@ -469,14 +469,14 @@ Scrivi una funzione chiamata "removeIndex" che riceve un numero come parametro e
 
 console.log("------------------- TASK 19 -------------------");
 const removeIndex = (num) => { 
-
-const clonedMovies = [...movies]
-
-console.log(movies)
-
-clonedMovies.splice(num, 1)
-
-console.log(clonedMovies)
+  
+  const clonedMovies = [...movies]
+  
+  console.log(movies)
+  
+  clonedMovies.splice(num, 1)
+  
+  console.log(clonedMovies)
   
   return movies
 }
@@ -486,32 +486,95 @@ removeIndex(0)
 // DOM (nota: gli elementi che selezionerai non si trovano realmente nella pagina)
 
 /* ESERCIZIO 20
-  Scrivi una funzione per selezionare l'elemento dotato di id "container" all'interno della pagina.
+Scrivi una funzione per selezionare l'elemento dotato di id "container" all'interno della pagina.
 */
+
+console.log("------------------- TASK 20 -------------------");
+const selectContainerId = () => {
+  const containerID = document.getElementById("container");
+  
+  return containerID;
+}
 
 /* ESERCIZIO 21
-  Scrivi una funzione per selezionare ogni tag <td> all'interno della pagina.
+Scrivi una funzione per selezionare ogni tag <td> all'interno della pagina.
 */
+
+console.log("------------------- TASK 21 -------------------");
+const selectAllTd = () => {
+  const allTd = document.querySelectorAll('td');
+  
+  return allTd;
+}
 
 /* ESERCIZIO 22
-  Scrivi una funzione che, tramite un ciclo, stampa in console il testo contenuto in ogni tag <td> all'interno della pagina.
+Scrivi una funzione che, tramite un ciclo, stampa in console il testo contenuto in ogni tag <td> all'interno della pagina.
 */
+
+console.log("------------------- TASK 22 -------------------");
+const printingAllTd = () => {
+  const allTd = document.getElementsByTagName("td");
+  
+  Array.from(allTd).forEach(el => { console.log(el.innerText);
+    
+  });
+}
 
 /* ESERCIZIO 23
-  Scrivi una funzione per aggiungere un background di colore rosso a ogni link all'interno della pagina.
+Scrivi una funzione per aggiungere un background di colore rosso a ogni link all'interno della pagina.
 */
+
+console.log("------------------- TASK 23 -------------------");
+const paintTheLinkRed = () => {
+  const allLinks = document.querySelectorAll("a");
+  
+  allLinks.forEach(el => { el.style.backgroundColor = "red";
+    
+  });
+}
 
 /* ESERCIZIO 24
-  Scrivi una funzione per aggiungere un nuovo elemento alla lista non ordinata con id "myList".
+Scrivi una funzione per aggiungere un nuovo elemento alla lista non ordinata con id "myList".
 */
+
+console.log("------------------- TASK 24 -------------------");
+const addLiElement = (string) => {
+  const ulList = document.getElementById("myList");
+  
+  const newLiElement = document.createElement("li");
+  
+  newLiElement.innerText = string;
+  
+  ulList.appendChild(newLiElement);
+}
 
 /* ESERCIZIO 25
-  Scrivi una funzione per svuotare la lista non ordinata con id "myList".
+Scrivi una funzione per svuotare la lista non ordinata con id "myList".
 */
 
+console.log("------------------- TASK 25 -------------------");
+const deleteListElements = () => {
+  const ulList = document.getElementById("myList");
+  
+  const liElements = ulList.querySelectorAll("li");
+  
+  liElements.forEach(li => {
+    li.remove();
+  });
+}
+
 /* ESERCIZIO 26
-  Scrivi una funzione per aggiungere ad ogni tag <tr> la classe CSS "test"
+Scrivi una funzione per aggiungere ad ogni tag <tr> la classe CSS "test"
 */
+
+console.log("------------------- TASK 26 -------------------");
+const addClass = () => {
+  const everyTr = document.querySelectorAll("tr");
+
+  everyTr.forEach(tr => {
+    tr.classList.add("test")
+  });
+}
 
 // [EXTRA] JS Avanzato
 
