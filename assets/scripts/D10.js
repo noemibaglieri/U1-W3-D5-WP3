@@ -432,29 +432,49 @@ Scrivi una funzione chiamata "searchByTitle" che riceve una stringa come paramet
 */
 
 console.log("------------------- TASK 17 -------------------");
-const searchByTitle = () => {
-  for (let i = 0; i < movies.length; i++) {
-    let movie = movies[i];
-    let title = movie.Title;
-
-    if (title.includes("The")) {
-      return movie;
-    } else {
-      console.log("Noway");
-    }
-  }
+const searchByTitle = (string) => {
+  
+  const filteredMovies = movies.filter(movie => movie.Title.toLowerCase().includes(string.toLowerCase()))
+  
+  return filteredMovies;
+  
 };
 
-console.log(searchByTitle());
+console.log(searchByTitle("of"));
 
 /* ESERCIZIO 18
-  Scrivi una funzione chiamata "searchAndDivide" che riceve una stringa come parametro e ritorna un oggetto contenente due array: "match" e "unmatch".
-  "match" deve includere tutti i film dell'array "movies" fornito che contengono la stringa fornita all'interno del proprio titolo, mentre "unmatch" deve includere tutti i rimanenti.
+Scrivi una funzione chiamata "searchAndDivide" che riceve una stringa come parametro e ritorna un oggetto contenente due array: "match" e "unmatch".
+"match" deve includere tutti i film dell'array "movies" fornito che contengono la stringa fornita all'interno del proprio titolo, mentre "unmatch" deve includere tutti i rimanenti.
 */
 
+console.log("------------------- TASK 18 -------------------");
+const searchAndDivide = string => {
+  
+  const swindler = { match: [], unmatch: []};
+  
+  const filteredMovies = movies.filter(movie => movie.Title.toLowerCase().includes(string.toLowerCase()));
+ const unWantedMovies = movies.filter(movie => !movie.Title.toLowerCase().includes(string.toLowerCase()) );
+  
+    swindler.match.push(filteredMovies);
+    swindler.unmatch.push(unWantedMovies);
+
+      return swindler;
+  }
+  
+  
+console.log(searchAndDivide("of"))
 /* ESERCIZIO 19
   Scrivi una funzione chiamata "removeIndex" che riceve un numero come parametro e ritorna l'array "movies" fornito privo dell'elemento nella posizione ricevuta come parametro.
 */
+
+const removeIndex = () => { 
+  console.log(movies)
+
+    movies.splice(2, 1)
+  
+  return movies
+}
+console.log(removeIndex(3))
 
 // DOM (nota: gli elementi che selezionerai non si trovano realmente nella pagina)
 
