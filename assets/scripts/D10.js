@@ -453,28 +453,35 @@ const searchAndDivide = string => {
   const swindler = { match: [], unmatch: []};
   
   const filteredMovies = movies.filter(movie => movie.Title.toLowerCase().includes(string.toLowerCase()));
- const unWantedMovies = movies.filter(movie => !movie.Title.toLowerCase().includes(string.toLowerCase()) );
+  const unWantedMovies = movies.filter(movie => !movie.Title.toLowerCase().includes(string.toLowerCase()) );
   
-    swindler.match.push(filteredMovies);
-    swindler.unmatch.push(unWantedMovies);
+  swindler.match.push(filteredMovies);
+  swindler.unmatch.push(unWantedMovies);
+  
+  return swindler;
+}
 
-      return swindler;
-  }
-  
-  
+
 console.log(searchAndDivide("of"))
 /* ESERCIZIO 19
-  Scrivi una funzione chiamata "removeIndex" che riceve un numero come parametro e ritorna l'array "movies" fornito privo dell'elemento nella posizione ricevuta come parametro.
+Scrivi una funzione chiamata "removeIndex" che riceve un numero come parametro e ritorna l'array "movies" fornito privo dell'elemento nella posizione ricevuta come parametro.
 */
 
-const removeIndex = () => { 
-  console.log(movies)
+console.log("------------------- TASK 19 -------------------");
+const removeIndex = (num) => { 
 
-    movies.splice(2, 1)
+const clonedMovies = [...movies]
+
+console.log(movies)
+
+clonedMovies.splice(num, 1)
+
+console.log(clonedMovies)
   
   return movies
 }
-console.log(removeIndex(3))
+
+removeIndex(0)
 
 // DOM (nota: gli elementi che selezionerai non si trovano realmente nella pagina)
 
